@@ -1,7 +1,7 @@
 steps:
 
   # ! build
-  # installation des dépendances jouée sur Cloud Build
+  # installation des dépendances
   - name: python
     entrypoint: pip
     args: ["install", "-r", "modules/4.3/example1/requirements.txt", "--user"]
