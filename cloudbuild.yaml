@@ -2,18 +2,19 @@ steps:
 
   # ! build
   # installation des dépendances 
-  - name: python
+  # un "builder" est un container/machine avec certaines dépendances pré installées
+  - name: python # nom du "builder"
     # nom du programme en entrée pour cette étape de pipeline
     entrypoint: pip
     args: ["install", "-r", "requirements.txt", "--user"]
-    id: "Install"
+    id: "installation des dépendances"
 
     # ! test
   - name: python
     # nom du programme en entrée pour cette étape de pipeline
     entrypoint: python
     args: ["-m", "pytest"]
-    id: "Test"
+    id: "test de l'application"
 
     # ! deploy
     # TODO
