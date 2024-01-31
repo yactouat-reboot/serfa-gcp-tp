@@ -2,14 +2,14 @@ steps:
 
   # ! build
   # installation des dépendances 
-  - name: install python dependencies
+  - name: python
     # nom du programme en entrée pour cette étape de pipeline
     entrypoint: pip
     args: ["install", "-r", "requirements.txt", "--user"]
     id: "Install"
 
     # ! test
-  - name: test python code
+  - name: python
     # nom du programme en entrée pour cette étape de pipeline
     entrypoint: python
     args: ["-m", "pytest"]
