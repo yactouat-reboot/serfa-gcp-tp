@@ -45,6 +45,7 @@ steps:
       - update
       - serfa-gcp-tp
       - "--platform=managed"
+      - "--port=5000"
       - "--image=europe-west1-docker.pkg.dev/serfa-gcp/$REPO_NAME/flasksample:$SHORT_SHA"
       - "--region=europe-west1"
       - "--quiet"
