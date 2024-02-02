@@ -37,5 +37,5 @@ jobs:
             # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
             run: |
                 echo "TEST"
-                pytest
+                python -m pytest
 
