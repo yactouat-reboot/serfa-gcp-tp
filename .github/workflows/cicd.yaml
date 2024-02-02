@@ -23,4 +23,17 @@ jobs:
                 echo "BUILD"
                 pip install -r requirements.txt
             
+    # votre prémière étape, que vous pouvez nommer arbitrairement
+    test:
+      # on décrit le type de machine sur lequel on veut run une étape
+      runs-on: ubuntu-latest
+      steps:
+          # nom complet de l'action GitHub qui permet de cloner le repo
+          # https://github.com/marketplace?type=actions
+          - uses: actions/checkout@v4
+          - name: test
+            # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
+            run: |
+                echo "TEST"
+                pytest
 
