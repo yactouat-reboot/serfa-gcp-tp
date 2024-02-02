@@ -27,6 +27,8 @@ jobs:
     test:
       # on décrit le type de machine sur lequel on veut run une étape
       runs-on: ubuntu-latest
+      # on crée ici avec `needs` une dépdendance d'un job vers un autre
+      needs: build
       steps:
           # nom complet de l'action GitHub qui permet de cloner le repo
           # https://github.com/marketplace?type=actions
@@ -35,5 +37,5 @@ jobs:
             # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
             run: |
                 echo "TEST"
-                python -m pytest
+                pytest
 
