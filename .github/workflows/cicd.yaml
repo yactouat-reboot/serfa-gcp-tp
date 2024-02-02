@@ -38,3 +38,13 @@ jobs:
             registry: europe-west1-docker.pkg.dev
             username: _json_key
             password: ${{ secrets.CLOUD_RUN_DEPLOYER_SA_KEY }}
+        - id: docker-push-tagged
+          name: Tag Docker image and push to Google Artifact Registry
+          uses: docker/build-push-action@v5
+          with:
+            file: ./prod.Dockerfile
+            context: .
+            push: true
+            tags: |
+              europe-west1-docker.pkg.dev/serfa-gcp/serfa-gcp-tp/serfagcp:latest
+      
