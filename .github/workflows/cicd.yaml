@@ -17,7 +17,10 @@ jobs:
             # nom complet de l'action GitHub qui permet de cloner le repo
             # https://github.com/marketplace?type=actions
             - uses: actions/checkout@v4
-            - name: build de l'application
+            - name: build
               # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
               run: |
                 echo "BUILD"
+                pip install -r requirements.txt
+            
+
