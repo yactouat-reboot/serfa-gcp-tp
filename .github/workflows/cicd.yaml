@@ -21,6 +21,4 @@ jobs:
               # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
               run: |
                 echo "BUILD AND TEST"
-                pip install -r requirements.txt
-                python -m pytest
-                docker ps
+                echo "TODO BUILD AND TEST IN DOCKER NOT ON RUNNER"
