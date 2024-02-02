@@ -21,4 +21,5 @@ jobs:
               # `run` avec le caractère `|` permet d'écrire plusieurs commandes à la suite
               run: |
                 echo "BUILD AND TEST"
-                echo "TODO BUILD AND TEST IN DOCKER NOT ON RUNNER"
+                docker build -t serfagcp:latest .
+                docker run serfagcp:latest bash -c "python -m pytest"
