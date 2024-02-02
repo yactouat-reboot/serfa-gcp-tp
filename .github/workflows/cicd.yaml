@@ -9,6 +9,7 @@ on:
 # les "jobs" sont les étapes de votre pipeline
 jobs:
 
+    # CONTINUOUS INTEGRATION
     # votre prémière étape, que vous pouvez nommer arbitrairement
     build-and-test:
         # on décrit le type de machine sur lequel on veut run une étape
@@ -23,3 +24,17 @@ jobs:
                 echo "BUILD AND TEST"
                 docker build -t serfagcp:latest .
                 docker run serfagcp:latest bash -c "python -m pytest"
+
+    # CONTINUOUS DEPLOYMENT
+    push-image-to-gar:
+      runs-on: ubuntu-latest
+      # permet d'éviter les race conditions
+      needs: build-and-test
+      steps:
+        - uses: actions/checkout@v4
+        - name: se login au Google Artifact Registry
+          uses: docker/login-action@v3
+          with:
+            registry: europe-west1-docker.pkg.dev
+            username: _json_key
+            password: ${{ secrets.CLOUD_RUN_DEPLOYER_SA_KEY }}
