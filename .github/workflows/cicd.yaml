@@ -68,6 +68,8 @@ jobs:
           with:
             service: 'serfa-gcp-tp'
             image: 'europe-west1-docker.pkg.dev/serfa-gcp/serfa-gcp-tp/serfagcp:latest'
+            region: 'europe-west1'
+
 
         # ce dernier step permet de lire les logs de l'action précédente
         - name: 'Use output'
