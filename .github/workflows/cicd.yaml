@@ -47,4 +47,6 @@ jobs:
             push: true
             tags: |
              europe-west1-docker.pkg.dev/serfa-gcp/serfa-gcp-tp/serfagcp:latest
+             europe-west1-docker.pkg.dev/serfa-gcp/serfa-gcp-tp/serfagcp:${{ github.sha }}
       
+    
