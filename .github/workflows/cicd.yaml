@@ -62,13 +62,14 @@ jobs:
           with:
             credentials_json: '${{ secrets.CLOUD_RUN_DEPLOYER_SA_KEY }}'
 
-        # - id: 'deploy'
-        #   uses: 'google-github-actions/deploy-cloudrun@v2'
-        #   with:
-        #     service: 'hello-cloud-run'
-        #     image: 'gcr.io/cloudrun/hello'
+        # ce step déploie notre image sur Cloud Run
+        - id: 'deploy'
+          uses: 'google-github-actions/deploy-cloudrun@v2'
+          with:
+            service: 'serfa-gcp-tp'
+            image: 'europe-west1-docker.pkg.dev/serfa-gcp/serfa-gcp-tp/serfagcp:latest'
 
-        # - name: 'Use output'
-        #   run: 'curl "${{ steps.deploy.outputs.url }}"'
+        # ce dernier step permet de lire les logs de l'action précédente
+        - name: 'Use output'
+          run: 'curl "${{ steps.deploy.outputs.url }}"'
         
-    
