@@ -7,5 +7,12 @@ services:
     ports:
       # à gauche la machine hôte, à droite le container
       - 5000:5000
-    volumes:
-      - ./:/usr/src/app
+    develop:
+        watch:
+          # `sync`, sycnhroniser les fichiers uniquement;;
+          # autre `action` => `rebuild`, à chaque changement ça rebuild le container;
+          # `sync+restart`, ne va pas rebuild le container, mais va juste redémarrer le processus principal du container
+          - action: rebuild
+            path: .
+            target: /usr/src/app
+
